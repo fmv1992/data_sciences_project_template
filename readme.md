@@ -30,33 +30,37 @@ Project structure:
 
 Lets start by outlining what goes where:
 
-* `code/python/main.py`: 
+* `code/python/main.py`:
     * Contains imports and high level function calls only.
     * Calls main functions defined in other files.
     * All complexity should be kept away from it and encapsulated in the
       respective py file.
     * Should contain nested for loops to combine different models with possibly
       different pipeline, output variables, etc.
-* `code/python/data_loading.py`: 
+* `code/python/data_loading.py`:
     * Contains data loading and preparation functions.
     * Do not mix data processing with data loading (see below).
     * Must ensure data is properly passed into other functions of the module,
       including data type management (e.g. categorical versus boolean).
-* `code/python/constants.py`: 
+* `code/python/constants.py`:
     * Assigns project-wide variables such as paths, number of CPUs to use (in
       the case of parallel processing), etc.
     * It should be the first file imported by other files.
     * Must contain assertions for all of its assignments (when applicable).
-* `code/python/data_processing.py`: 
+* `code/python/data_processing.py`:
     * Contains data processing functions such as feature extraction, feature
       transformations, etc.
     * Do not mix data processing with data loading (see above).
-* `code/python/models.py`: 
+* `code/python/models.py`:
     * Provide model loading and specification.
-* `code/python/data_exploration.py`: 
+* `code/python/data_exploration.py`:
     * Provide data exploration functions.
     * Should be isolated from other functions and have its `main` function
       called by the `main` function in the `main.py` file.
+                                            * `code/python/grid_search.py`2
+    * Provide grid search functions.
+    * Grids should be kept in a different module.
+    * TODO: keep grids apart in a json or configparse file, etc.
 
 I consider all of my projects to be a combination of the following pipeline:
 
@@ -81,3 +85,8 @@ loop.
 1. One data set means one model in the end. Don't try to keep two different
    models/datasets on the same structure. Move your functions to an independent
    model and split them.
+
+## TODO
+
+* `code/python/grid_search.py`: 
+    * TODO: keep grids apart in a json or configparse file, etc.

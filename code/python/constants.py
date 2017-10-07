@@ -16,7 +16,8 @@ def flush_project_results(*paths):
                 glob.glob(x + os.sep + '**') + glob.glob(x + os.sep + '*')),
                     paths),
                 [])))
-        # print(flush_files)
+        for del_file in flush_files:
+            os.remove(del_file)
 
 
 def get_root_dir_based_on_dotgit(path):
@@ -102,4 +103,3 @@ GRIDS = [
     # Decision Tree.
     {},
     ]
-

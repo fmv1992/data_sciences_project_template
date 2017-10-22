@@ -90,3 +90,6 @@ loop.
 
 * `code/python/grid_search.py`: 
     * TODO: keep grids apart in a json or configparse file, etc.
+* Where does the dropping of nulls go?
+    * Data processing part; feature union
+    * ?

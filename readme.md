@@ -1,6 +1,6 @@
 # Data sciences project organization
 
-This package outlines a good approach for managing data sciences projects.
+This project outlines a good approach for managing data sciences projects.
 
 You can check a working example at: my
 [data_sciences_project_example](https://github.com/fmv1992/data_sciences_project_example).
@@ -47,7 +47,7 @@ Lets start by outlining what goes where:
       called by the `main` function in the `main.py` file.
 * `code/python/data_loading.py`: 
     * Provide data loading and preparation functions.
-    * Provide adequate data splitting methods (out of time versus out of
+    * Provide adequate data splitting methods (e.g. out of time versus out of
       sample).
     * Must ensure data is properly passed to other functions of the module,
       including data type management (e.g. categorical versus boolean).
@@ -64,17 +64,20 @@ Lets start by outlining what goes where:
 * `code/python/grid_search.py`: 
     * Provide grid search functions.
     * Should combine models x datasets (data transformations) x grid search.
-    * Should expose best results per model (that is a data set and a best grid)
-      in a function.
+    * Should expose best results that are easily combined with models. In the
+      end the data scientist wants the best combination of: model + data
+      + hyperparameter/grid.
 * `code/python/main.py`: 
     * Run all the desired analysis of your project.
-    * Contains imports and high level function calls only.
-    * Calls main functions defined in other files. Also calls specific
+    * Must execute all pertinent functions and generate all desired results.
+      One command and your project is executed.
+    * Contain imports and high level function calls only.
+    * Call main functions defined in other files. Also calls specific
       functions from other files.
-    * May have other module level simple functions' definitions (such as
+    * May have other module-level simple functions' definitions (such as
       filtering warnings).
     * All complexity should be kept away from it and encapsulated in the
-      respective py file.
+      respective python file.
 * `code/python/models.py`: 
     * Provide model loading functions.
     * Execute models' results analyses (to be changed to its own module).
@@ -82,14 +85,14 @@ Lets start by outlining what goes where:
 
 ### Benefits of such layout
 
-1. You know what goes where: very sharp separation of code, temporary files,
-   data and output.
-1. Modules are well defined: simple file names that you where your new idea
-   fits.
+1. Project level organization: You know what goes where. Very sharp separation
+   of code, temporary files, data and output.
+1. Python module level organization: simple file names that obviates where to
+   put your new ideas.
 1. Flat structure: leads to simple importing in python and easier
-   understanding.
-1. Good modularity/complexity trade-off: Having around seven files helps when
-   you need search or find a place to put your functions.
+   module understanding.
+1. Good modularity/complexity trade-off: Having a total of around seven files
+   helps when you need search or find a place to put your functions.
 
 <!--
 * `code/python/constants.py`: 
@@ -130,6 +133,12 @@ I consider all of my projects to be a combination of the following pipeline:
                                         ->      +-----------------+
 ~~~~~~
 
+Which equates to:
+
+~~~~~~
+Datasets x Algorithms x Hyperparameters
+~~~~~~
+
 Sometimes there is even a third combination like different output variables.
 
 This is the most flexible scenario. It may be simplified by using just one
@@ -150,5 +159,6 @@ slower so it should be in outermost loop.
 ## TODO
 
 1. Specify data analyses/exploration just after data set loading and just after
-   dataset processing.
-1. Move models results to a reporting file.
+   dataset processing. That is, split what currently is one thing in two
+   things.
+1. Move models results to a reporting file `reporting.py`.

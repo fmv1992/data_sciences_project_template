@@ -19,7 +19,7 @@ This structure is a 'convergent evolution' of different projects of mine
 related to data sciences. It is the result of several trial-and-error
 iterations with different project layouts with their different requirements.
 
-## Project structure:
+## Project structure
 
 1. `code`: this is where all of your could should be. Code is code, data is
    data.

@@ -82,6 +82,10 @@ Lets start by outlining what goes where:
     * Provide model loading functions.
     * Execute models' results analyses (to be changed to its own module).
 
+See
+[data_sciences_project_example](https://github.com/fmv1992/data_sciences_project_example)
+for an illustration of those concepts.
+
 
 ### Benefits of such layout
 

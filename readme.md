@@ -162,6 +162,7 @@ slower so it should be in outermost loop.
 
 ## TODO
 
+1. Consider using a makefile for improved automation.
 1. Specify data analyses/exploration just after data set loading and just after
    dataset processing. That is, split what currently is one thing in two
    things.

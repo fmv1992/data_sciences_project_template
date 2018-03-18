@@ -1,4 +1,5 @@
 """Provide data processing functions."""
+
 # pylama: ignore=D103
 
 

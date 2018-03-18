@@ -162,8 +162,28 @@ slower so it should be in outermost loop.
 
 ## TODO
 
+* * *
+
+1. See the module configparse of python!
+
+1. Apply to my ongoing data sciences competition.
+
+1. Data splitting in x train and x test has to happen before this part:
+    # Load and combine data processing pipelines.
+    data_processing.main(dataframe, nan_strategy='drop')
+    # Rationale: prepare data to be fed into the models.
+    # Different algorithms make use of different data structures. For instance
+    # XGBoost allow for nans. Data transformations usually don't.
+    Because there may be normalization/PCA/TSNE/etc during this part but if you are using the entire dataframe then you are wrong. Test dataset has to be treated as unseen data.
+
+1. Data exploration pre and post processing shall have their own functions.
+
+* * *
+
 1. Consider using a makefile for improved automation.
+
 1. Specify data analyses/exploration just after data set loading and just after
    dataset processing. That is, split what currently is one thing in two
    things.
+
 1. Move models results to a reporting file `reporting.py`.
